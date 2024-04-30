@@ -18,7 +18,7 @@ The EpiMax Backend is a RESTful API server built using Express.js and SQLite3, p
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/epimax-backend.git
+    git clone https://github.com/Veeramanikandanr48/EpiMax-Backend.git
     ```
 
 2. Navigate to the project directory:
