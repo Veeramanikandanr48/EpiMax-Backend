@@ -1,0 +1,109 @@
+POST http://localhost:8000/register
+Content-Type: application/json
+
+{
+  "username": "adminveera",
+  "password": "admin123",
+  "role": "user"
+}
+
+
+### Login User
+
+POST http://localhost:8000/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+### Create Task
+
+POST http://localhost:8000/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE0NDc2MTQzLCJleHAiOjE3MTQ0Nzk3NDN9.m_54z9XhUXI1ZmTOHZhDD_3Ym1UNYM8H52TR6hCNP6M
+
+{
+  "title": "Task 1",
+  "description": "Description for Task 1",
+  "assignee_id": 1
+}
+
+### Retrieve All Tasks
+
+GET http://localhost:8000/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE0NDc2MTQzLCJleHAiOjE3MTQ0Nzk3NDN9.m_54z9XhUXI1ZmTOHZhDD_3Ym1UNYM8H52TR6hCNP6M
+
+### Retrieve Task by ID
+
+GET http://localhost:8000/tasks/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE0NDc2MTQzLCJleHAiOjE3MTQ0Nzk3NDN9.m_54z9XhUXI1ZmTOHZhDD_3Ym1UNYM8H52TR6hCNP6M
+
+### Update Task by ID
+
+PUT http://localhost:8000/tasks/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE0NDc2MTQzLCJleHAiOjE3MTQ0Nzk3NDN9.m_54z9XhUXI1ZmTOHZhDD_3Ym1UNYM8H52TR6hCNP6M
+
+{
+  "title": "Updated Task 1",
+  "description": "Updated description for Task 1",
+  "status": "In Progress"
+}
+
+### Delete Task by ID
+
+DELETE http://localhost:8000/tasks/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE0NDc2MTQzLCJleHAiOjE3MTQ0Nzk3NDN9.m_54z9XhUXI1ZmTOHZhDD_3Ym1UNYM8H52TR6hCNP6M
+
+
+### Admin Routes Testing
+
+# Register a new admin user
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "username": "adminveera",
+  "password": "adminpassword",
+  "role": "admin"
+}
+
+###Login as admin to get token
+POST http://localhost:8000/login
+Content-Type: application/json
+
+{
+  "username": "adminusername",
+  "password": "admin123"
+}
+
+###
+### Admin API Endpoints
+###
+
+# Get all users (requires admin role)
+GET http://localhost:8000/admin/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbnVzZXJuYW1lIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE0NDc2OTI1LCJleHAiOjE3MTQ0ODA1MjV9.s0A17645-HsyhfUNcznbsqOZ1SFvFQiGIvO96zvaF0Q
+
+
+###
+
+PUT http://localhost:8000/admin/users/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbnVzZXJuYW1lIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE0NDc2OTI1LCJleHAiOjE3MTQ0ODA1MjV9.s0A17645-HsyhfUNcznbsqOZ1SFvFQiGIvO96zvaF0Q
+
+{
+  "username": "admin",
+  "password": "admin123",
+  "role": "user"
+}
+
+
+###
+DELETE http://localhost:8000/admin/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbnVzZXJuYW1lIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE0NDc2OTI1LCJleHAiOjE3MTQ0ODA1MjV9.s0A17645-HsyhfUNcznbsqOZ1SFvFQiGIvO96zvaF0Q

@@ -1,0 +1,172 @@
+### Register Admin User
+
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123",
+  "role": "admin"
+}
+
+### Register Regular User
+
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "user123",
+  "role": "user"
+}
+
+### Login Admin
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+### Login Regular User
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "user123"
+}
+
+### Create Task (Admin)
+
+POST http://localhost:3000/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNDQ3ODg5OCwiZXhwIjoxNzE0NDgyNDk4fQ.-AlPZ0A0DLueJBP7Y5MvSVfH8Ikvxzb2L90tW-bBWLU
+
+{
+  "title": "Admin Task 1",
+  "description": "Description for Admin Task 1",
+  "assignee_id": 1
+}
+
+### Get All Tasks (Admin)
+
+GET http://localhost:3000/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNDQ3ODg5OCwiZXhwIjoxNzE0NDgyNDk4fQ.-AlPZ0A0DLueJBP7Y5MvSVfH8Ikvxzb2L90tW-bBWLU
+
+### Create Task (User)
+
+POST http://localhost:3000/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJ1c2VyMSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE0NDc4ODAyLCJleHAiOjE3MTQ0ODI0MDJ9.lomJXF_bMA6SKSKF8WQqfMeGZOEAHBlTBL0ULe5PbAo
+
+{
+  "title": "User Task 1",
+  "description": "Description for User Task 1",
+  "assignee_id": 2
+}
+
+### Get All Tasks (User)
+
+GET http://localhost:3000/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJ1c2VyMSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE0NDc4ODAyLCJleHAiOjE3MTQ0ODI0MDJ9.lomJXF_bMA6SKSKF8WQqfMeGZOEAHBlTBL0ULe5PbAo
+
+### Get Task by ID (Admin)
+
+GET http://localhost:3000/tasks/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNDQ3ODg5OCwiZXhwIjoxNzE0NDgyNDk4fQ.-AlPZ0A0DLueJBP7Y5MvSVfH8Ikvxzb2L90tW-bBWLU
+
+### Get Task by ID (User)
+
+GET http://localhost:3000/tasks/:id
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJ1c2VyMSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE0NDc4ODAyLCJleHAiOjE3MTQ0ODI0MDJ9.lomJXF_bMA6SKSKF8WQqfMeGZOEAHBlTBL0ULe5PbAo
+
+### Update Task by ID (Admin)
+
+PUT http://localhost:3000/tasks/:id
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNDQ3ODg5OCwiZXhwIjoxNzE0NDgyNDk4fQ.-AlPZ0A0DLueJBP7Y5MvSVfH8Ikvxzb2L90tW-bBWLU
+
+{
+  "title": "Updated Admin Task 1",
+  "description": "Updated description for Admin Task 1",
+  "status": "Completed"
+}
+
+### Update Task by ID (User)
+
+PUT http://localhost:3000/tasks/:id
+Content-Type: application/json
+Authorization: Bearer <user_token>
+
+{
+  "title": "Updated User Task 1",
+  "description": "Updated description for User Task 1",
+  "status": "In Progress"
+}
+
+### Delete Task by ID (Admin)
+
+DELETE http://localhost:3000/tasks/:id
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNDQ3ODg5OCwiZXhwIjoxNzE0NDgyNDk4fQ.-AlPZ0A0DLueJBP7Y5MvSVfH8Ikvxzb2L90tW-bBWLU
+
+### Delete Task by ID (User)
+
+DELETE http://localhost:3000/tasks/:id
+Content-Type: application/json
+Authorization: Bearer <user_token>
+
+### Get All Users (Admin)
+
+GET http://localhost:3000/admin/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNDQ3ODg5OCwiZXhwIjoxNzE0NDgyNDk4fQ.-AlPZ0A0DLueJBP7Y5MvSVfH8Ikvxzb2L90tW-bBWLU
+
+### Update User by ID (Admin)
+
+PUT http://localhost:3000/admin/users/:id
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNDQ3ODg5OCwiZXhwIjoxNzE0NDgyNDk4fQ.-AlPZ0A0DLueJBP7Y5MvSVfH8Ikvxzb2L90tW-bBWLU
+
+{
+  "username": "updated_user",
+  "password": "updated_password",
+  "role": "updated_role"
+}
+
+### Delete User by ID (Admin)
+
+DELETE http://localhost:3000/admin/users/:id
+Content-Type: application/json
+Authorization: Bearer <admin_token>
+
+### Get User Profile (User)
+
+GET http://localhost:3000/user/profile
+Content-Type: application/json
+Authorization: Bearer <user_token>
+
+### Update User Profile (User)
+
+PUT http://localhost:3000/user/profile
+Content-Type: application/json
+Authorization: Bearer <user_token>
+
+{
+  "username": "updated_username",
+  "role": "updated_role"
+}
+
+### Delete User Account (User)
+
+DELETE http://localhost:3000/user/profile
+Content-Type: application/json
+Authorization: Bearer <user_token>
